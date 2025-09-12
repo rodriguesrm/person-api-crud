@@ -1,1 +1,4 @@
 rootProject.name = 'person'
+include 'src:api'
+findProject(':src:api')?.name = 'api'
+
