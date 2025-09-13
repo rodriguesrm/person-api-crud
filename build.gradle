@@ -8,12 +8,6 @@ group = 'rsoft'
 version = '0.0.1-SNAPSHOT'
 description = 'Java Person API CRUD'
 
-java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(23)
-	}
-}
-
 repositories {
 	mavenCentral()
 }
