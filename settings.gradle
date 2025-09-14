@@ -1,4 +1,10 @@
 rootProject.name = 'person'
 include 'src:api'
 findProject(':src:api')?.name = 'api'
+include 'src:application'
+findProject(':src:application')?.name = 'application'
+include 'src:domain'
+findProject(':src:domain')?.name = 'domain'
+include 'src:infrastructure'
+findProject(':src:infrastructure')?.name = 'infrastructure'
 

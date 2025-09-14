@@ -15,6 +15,9 @@ repositories {
 dependencies {
 
 	implementation project(':src:api')
+	implementation project(':src:application')
+	implementation project(':src:domain')
+	implementation project(':src:infrastructure')
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
