@@ -1,4 +1,4 @@
-package rsoft.person.domain;
+package rsoft.person.domain.entities;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -63,10 +63,5 @@ public class TelefoneCliente extends EntityValidable<TelefoneCliente> {
 
     public Boolean getTelegram() {
         return telegram;
-    }
-
-    @Override
-    protected TelefoneCliente getInstance() {
-        return this;
     }
 }

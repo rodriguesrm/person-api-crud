@@ -1,24 +1,29 @@
-package rsoft.person.domain;
+package rsoft.person.domain.entities;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
-import jakarta.validation.ValidatorFactory;
 
 import java.util.List;
 import java.util.Set;
 
 import static java.util.Objects.isNull;
 
-public abstract class EntityValidable<T> {
+public abstract class EntityValidable<T extends EntityValidable<T>> {
 
-    protected ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-    protected Validator validator = factory.getValidator();
+    private Validator validator = Validation
+            .buildDefaultValidatorFactory()
+            .getValidator();
+
     protected Set<ConstraintViolation<T>> violations = null;
 
     public boolean isValid() {
         this.validate();
         return violations.isEmpty();
+    }
+
+    public boolean isNotValid() {
+        return !isValid();
     }
 
     public List<Violation> getViolationMessages() {
@@ -28,12 +33,15 @@ public abstract class EntityValidable<T> {
                 .toList();
     }
 
-    private void validate() {
+    protected void validate() {
         violations = isNull(violations)
                 ? validator.validate(getInstance())
                 : violations;
     }
 
-    protected abstract T getInstance();
+    protected T getInstance() {;
+        //noinspection unchecked
+        return (T) this;
+    }
 
 }

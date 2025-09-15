@@ -1,4 +1,4 @@
-package rsoft.person.domain;
+package rsoft.person.domain.entities;
 
 import org.junit.jupiter.api.Test;
 
@@ -67,7 +67,7 @@ class TelefoneClienteTest {
     @Test
     void deveFalharQuandoCodigoAreaForMenorQueMinimo() {
         var entity = new TelefoneCliente(
-                TipoTelefone.RESIDENCIAL,
+                TipoTelefone.OUTRO,
                 (short) 55,
                 (short) 0,
                 99999999,

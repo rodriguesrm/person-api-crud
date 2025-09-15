@@ -2,7 +2,7 @@ package rsoft.person.infra.entities;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
@@ -23,7 +23,7 @@ public class Cliente {
     private String email;
 
     @Temporal(TemporalType.DATE)
-    private Date nascimento;
+    private LocalDate nascimento;
 
     @Column(precision = 16, scale = 2)
     private BigDecimal renda;
@@ -55,11 +55,11 @@ public class Cliente {
         this.email = email;
     }
 
-    public Date getNascimento() {
+    public LocalDate getNascimento() {
         return nascimento;
     }
 
-    public void setNascimento(Date nascimento) {
+    public void setNascimento(LocalDate nascimento) {
         this.nascimento = nascimento;
     }
 
